@@ -1,13 +1,13 @@
-name: "Bark Action"
-description: "An action for bark"
-author: Ji Yuanhao <jiyuanhao1997@gmail.com>
+name: "Bark Notification"
+description: "An action for bark nitification"
+author: Steven <bithub@yahoo.com>
 branding:
   icon: "message-circle"
   color: "red"
 inputs:
   host:
-    description: Bark server
-    required: true
+    description: Bark server host
+    required: false
     default: "https://api.day.app"
   key:
     description: Secret key

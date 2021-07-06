@@ -18,6 +18,9 @@ inputs:
   body:
     description: Message body
     required: false
+  category:
+    description: Category
+    required: false
   sound:
     description: Message sound
     required: false
@@ -44,6 +47,7 @@ runs:
         INPUT_KEY: ${{ inputs.key }}
         INPUT_TITLE: ${{ inputs.title }}
         INPUT_BODY: ${{ inputs.body }}
+        INPUT_CATEGORY: ${{ inputs.category }}
         INPUT_SOUND: ${{ inputs.sound }}
         INPUT_ISARCHIVE: ${{ inputs.isArchive }}
         INPUT_URL: ${{ inputs.url }}

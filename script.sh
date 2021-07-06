@@ -13,18 +13,18 @@ fi
 request_url=$INPUT_HOST/$INPUT_KEY/
 request_body="title=${INPUT_TITLE}&body=${INPUT_BODY}&sound=${INPUT_SOUND}"
 
-if [[ -z $INPUT_ISARCHIVE ]]; then
+if [[ ! -z $INPUT_ISARCHIVE ]]; then
     request_body="${request_body}&isArchive=${INPUT_ISARCHIVE}"
 fi
 
-if [[ -z $INPUT_URL ]]; then
+if [[ ! -z $INPUT_URL ]]; then
     request_body="${request_body}&url=${INPUT_URL}"
 fi
 
-if [[ -z $INPUT_AUTOMATICALLYCOPY ]]; then
+if [[ ! -z $INPUT_AUTOMATICALLYCOPY ]]; then
     request_body="${request_body}&automaticallyCopy=${INPUT_AUTOMATICALLYCOPY}"
 fi
-if [[ -z $INPUT_COPY ]]; then
+if [[ ! -z $INPUT_COPY ]]; then
     request_body="${request_body}&copy=${INPUT_COPY}"
 fi
 

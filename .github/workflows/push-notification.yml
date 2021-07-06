@@ -1,6 +1,6 @@
-name: 'Push Notifications to Bark'
+name: "Push Notifications to Bark"
 
-on: 
+on:
   repository_dispatch:
   workflow_dispatch:
 
@@ -18,7 +18,7 @@ jobs:
           title: Message title
           body: Message body
           sound: alarm
-          isArchive: 1
-          url: https://yuanhaoji.com
-          automaticallyCopy: 1
-          copy: Content copied to clipboard
+          #isArchive: 1
+          #url: test
+          #automaticallyCopy: 1
+          #copy: Content copied to clipboard

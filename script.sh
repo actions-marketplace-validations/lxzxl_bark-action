@@ -16,17 +16,16 @@ json_body_tpl='{
   "device_key":"%s",
   "title":"%s",
   "body":"%s",
+  "category":"%s",
+  "sound":"%s",
   "ext_params": {
     "url": "%s"
-  },
-  "category":"%s",
-  "sound":"%s"
+  }
 }'
 
-json_body=`printf $json_body_tpl $INPUT_KEY $INPUT_TITLE $INPUT_BODY $INPUT_URL $INPUT_CATEGORY $INPUT_SOUND`
+json_body=`printf "$json_body_tpl" "$INPUT_KEY" "$INPUT_TITLE" "$INPUT_BODY" "$INPUT_CATEGORY" "$INPUT_SOUND" "$INPUT_URL"`
 
-
-echo -e "${cyan}POST URL${none}: "$request_url"
+echo -e "${cyan}POST URL${none}: $request_url"
 echo -e "${cyan}Body${none}:\n${json_body}"
 
 res=`curl -X "POST" "$request_url" \

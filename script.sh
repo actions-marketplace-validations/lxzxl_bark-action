@@ -10,17 +10,27 @@ if [[ -z $INPUT_KEY ]]; then
     exit -1
 fi
 
-res=`curl -X "POST" "https://bark.etcd.run/push" \
-     -H 'Content-Type: application/json; charset=utf-8' \
-     -d $'{
-  "device_key": "${INPUT_KEY}",
-  "title": "${INPUT_TITLE}",
-  "body": "${INPUT_BODY}",
+request_url=$INPUT_HOST/push
+
+json_body_tpl='{
+  "device_key":"%s",
+  "title":"%s",
+  "body":"%s",
   "ext_params": {
-    "url": "${INPUT_URL}"
+    "url": "%s"
   },
-  "category": "${INPUT_CATEGORY}",
-  "sound": "${INPUT_SOUND}"
-}'`
+  "category":"%s",
+  "sound":"%s"
+}'
+
+json_body=`printf $json_body_tpl $INPUT_KEY $INPUT_TITLE $INPUT_BODY $INPUT_URL $INPUT_CATEGORY $INPUT_SOUND`
+
+
+echo -e "${cyan}POST URL${none}: "$request_url"
+echo -e "${cyan}Body${none}:\n${json_body}"
+
+res=`curl -X "POST" "$request_url" \
+-H 'Content-Type: application/json; charset=utf-8' \
+-d "$json_body"`
 
 echo -e "${green}Result${none}: ${res}"
